@@ -4,8 +4,16 @@ module BrigadeBackend
   class ProjectsController < ApplicationController
     respond_to :html, :json
 
+    def index
+      respond_with(@projects = Project.all)
+    end
+
     def create
       respond_with(@project = Project.create(project_params))
+    end
+
+    def show
+      respond_with(@project = Project.find(params[:id]))
     end
 
     private
