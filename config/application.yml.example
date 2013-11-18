@@ -1,0 +1,18 @@
+defaults: &defaults
+  brigade_github: codeforboston
+  omniauth:
+    - provider: :github
+      app_id: APP_ID
+      app_secret: APP_SECRET
+      options:
+        :scope: 'user,public_repo'
+
+
+development:
+  <<: *defaults
+
+test:
+  <<: *defaults
+
+production:
+  <<: *defaults

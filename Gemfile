@@ -10,10 +10,20 @@ gem 'sqlite3'
 
 gem 'active_model_serializers'
 
+## Configuration
+gem 'settingslogic'
+
 ## Connectors
 # GitHub
 gem 'octokit'
 gem 'faraday-http-cache'
+
+## Authentication
+gem 'devise'
+gem 'omniauth'
+gem 'omniauth-github'
+gem 'omniauth-facebook'
+gem 'omniauth-twitter'
 
 
 # Gems used only for assets and not required

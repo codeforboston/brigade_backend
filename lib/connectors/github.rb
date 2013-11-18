@@ -1,8 +1,7 @@
 module Connectors
   class Github
     class << self
-      # FIXME obviously needs to be configurable
-      @@client = Octokit.org 'codeforboston'
+      @@client = Octokit.org Setup.brigade_github
 
       def client
         @@client
