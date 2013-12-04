@@ -1,6 +1,7 @@
 defaults: &defaults
   brigade_github: codeforboston
   omniauth:
+    - provider: :browser_id
     - provider: :github
       app_id: APP_ID
       app_secret: APP_SECRET
