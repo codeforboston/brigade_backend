@@ -24,6 +24,9 @@ gem 'omniauth'
 gem 'omniauth-github'
 gem 'omniauth-facebook'
 gem 'omniauth-twitter'
+gem 'omniauth-meetup'
+gem 'omniauth-google-oauth2'
+gem 'omniauth-browserid'
 
 
 # Gems used only for assets and not required

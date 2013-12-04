@@ -229,7 +229,8 @@ Devise.setup do |config|
   # up on your models and hooks.
   # config.omniauth :github, 'APP_ID', 'APP_SECRET', :scope => 'user,public_repo'
   Setup.omniauth.each do |auth|
-    config.omniauth auth.provider, auth.app_id, auth.app_secret, auth[:options] || {}
+    # APP_ID, APP_SECRET, and options are optional
+    config.omniauth auth.provider, *[auth[:app_id], auth[:app_secret], auth[:options]].compact
   end
 
   # ==> Warden configuration
