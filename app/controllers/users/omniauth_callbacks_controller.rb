@@ -5,8 +5,8 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
       flash.notice = "Successfully signed in via #{request.env["omniauth.auth"].provider}!"
       sign_in_and_redirect user
     else
-      session["devise.user_attributes"] = user.attributes
-      session['omniauth.biz'] = request.env["omniauth.auth"]
+      session['devise.user_attributes'] = user.attributes
+      session['devise.user_attributes']['authorizations_attributes'] = user.authorizations.map(&:attributes)
       redirect_to new_user_registration_url
     end
   end
