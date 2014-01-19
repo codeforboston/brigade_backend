@@ -1,5 +1,7 @@
 defaults: &defaults
   brigade_github: codeforboston
+  brigade_meetup: Code-for-Boston
+  meetup_api_key: MEETUP_USER_API_KEY
   omniauth:
     - provider: :browser_id
     - provider: :github

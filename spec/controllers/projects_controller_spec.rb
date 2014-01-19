@@ -4,7 +4,9 @@ describe ProjectsController do
   include Devise::TestHelpers
 
   before do
-    user = User.create name: 'Test User', email: 'example@example.com', password: 'changeme', password_confirmation: 'changeme'
+    user = User.new name: 'Test User', email: 'example@example.com', password: 'changeme', password_confirmation: 'changeme'#, confirmed_at: 1.minute.ago
+    user.skip_confirmation!
+    user.save
     sign_in user
 
     @project = Project.create(name: 'test', url: 'http://test.com', repository: 'http://github.com/test/test', description: 'test project')

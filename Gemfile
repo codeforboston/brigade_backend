@@ -17,6 +17,8 @@ gem 'settingslogic'
 # GitHub
 gem 'octokit'
 gem 'faraday-http-cache'
+# Meetup
+gem 'rMeetup', github: 'carpeliam/rmeetup'
 
 ## Authentication
 gem 'devise'
