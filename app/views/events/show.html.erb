@@ -1,0 +1,13 @@
+<p id="notice"><%= notice %></p>
+
+<h1><%= @event.name %> - <%= @event.start_time %></h1>
+<p><%= @event.description %></p>
+
+<% if @event.url.present? %>
+<p>
+[<%= link_to @event.url, @event.url %>]
+</p>
+<% end %>
+
+<%= link_to 'Edit', edit_event_path(@event) %> |
+<%= link_to 'Back', events_path %>

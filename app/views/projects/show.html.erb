@@ -1,0 +1,21 @@
+<p id="notice"><%= notice %></p>
+
+<h1><%= @project.name %></h1>
+<p><%= @project.description %></p>
+
+<% if @project.url.present? %>
+<p>
+[<%= link_to @project.url, @project.url %>]
+</p>
+<% end %>
+
+<% if @project.repository.present? %>
+<p>
+<%= link_to 'Github', @project.repository_url %>
+</p>
+<% end %>
+
+
+
+<%= link_to 'Edit', edit_project_path(@project) %> |
+<%= link_to 'Back', projects_path %>
