@@ -2,10 +2,13 @@ class EventsController < ApplicationController
   respond_to :html, :json
 
   def index
+    test = ENV["meetup_api_key"]
+    binding.pry
     respond_with(@events = Event.all)
   end
 
   def show
+
     respond_with(@event = Event.find(params[:id]))
   end
 

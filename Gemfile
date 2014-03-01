@@ -48,7 +48,9 @@ gem 'jquery-rails'
 
 group :development, :test do
   gem 'rspec-rails'
-  gem 'debugger'
+  gem 'pry'
+  gem 'shoulda-matchers'
+
 end
 
 # To use ActiveModel has_secure_password
