@@ -1,5 +1,20 @@
-<h1>New event</h1>
+<%= form_tag(controller: "events", action: "create", method: "post") do %>
 
-<%= render 'form' %>
+  <% @events.each do |event| %>
 
-<%= link_to 'Back', events_path %>
+  <%= check_box_tag("events[]", event.id)  %>
+  <%= event.group["name"] %>
+  </br>
+    <%= link_to(event.name, event.event_url) %>
+  </br>
+    <%= event.venue["name"] %>
+  </br>
+  <%= event.description.html_safe %>
+  </br>
+  <%= event.group["url"] %>
+    
+  <% end %>
+<%= submit_tag("Submit") %>
+
+<% end %>
+
