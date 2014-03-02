@@ -1,5 +1,5 @@
 class Event < ActiveRecord::Base
-  attr_accessible :name, :start_time, :url, :description
+  attr_accessible :name, :start_time, :url, :description, :brigade_id
   belongs_to :brigade
 
   def meetup_details
