@@ -1,0 +1,21 @@
+<%= form_tag(controller: "events", action: "import", method: "post") do %>
+
+  <% @events.each do |event| %>
+  <%= allow_import?(event.id) %>
+  <%= display_event_criteria(event.group, 'name') %>
+  </br>
+    <%= link_to(display_event_criteria(event.name, nil), display_event_criteria(event.event_url, nil)) %>
+  </br>
+
+  <%= display_event_criteria(event.venue, 'name') %>
+  </br>
+  <%= display_event_criteria(event.description.html_safe, nil) %>
+  </br>
+  <%= display_event_criteria(event.group, 'url') %>
+  </br>
+  
+  <% end %>
+<%= submit_tag("Submit") %>
+
+<% end %>
+

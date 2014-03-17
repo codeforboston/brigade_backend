@@ -18,7 +18,7 @@ gem 'settingslogic'
 gem 'octokit'
 gem 'faraday-http-cache'
 # Meetup
-gem 'rMeetup', github: 'carpeliam/rmeetup'
+gem 'rMeetup', github: 'carpeliam/rmeetup', require: 'rmeetup'
 
 ## Authentication
 gem 'devise'
@@ -29,6 +29,9 @@ gem 'omniauth-twitter'
 gem 'omniauth-meetup'
 gem 'omniauth-google-oauth2'
 gem 'omniauth-browserid'
+
+#decorators
+gem 'draper', '~> 1.3' 
 
 
 # Gems used only for assets and not required
@@ -44,11 +47,13 @@ group :assets do
 end
 
 gem 'jquery-rails'
-
+gem 'activerecord-import'
 
 group :development, :test do
   gem 'rspec-rails'
-  gem 'debugger'
+  gem 'pry'
+  gem 'shoulda-matchers'
+
 end
 
 # To use ActiveModel has_secure_password

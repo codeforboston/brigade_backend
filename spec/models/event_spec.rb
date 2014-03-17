@@ -7,4 +7,6 @@ describe Event do
     Connectors::Meetup.stub(:events) { [double(name: 'weekly event', time: DateTime.new(2014,1,9,19,0,0,'-5')), meetup_event, double(name: 'some other event', time: DateTime.new(2014,1,2,19,0,0,'-5'))] }
     expect(event.meetup_details).to equal meetup_event
   end
+
+  it { should belong_to(:brigade) }
 end
