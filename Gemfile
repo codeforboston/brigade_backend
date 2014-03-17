@@ -30,6 +30,9 @@ gem 'omniauth-meetup'
 gem 'omniauth-google-oauth2'
 gem 'omniauth-browserid'
 
+#decorators
+gem 'draper', '~> 1.3' 
+
 
 # Gems used only for assets and not required
 # in production environments by default.
@@ -44,7 +47,7 @@ group :assets do
 end
 
 gem 'jquery-rails'
-
+gem 'activerecord-import'
 
 group :development, :test do
   gem 'rspec-rails'

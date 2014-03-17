@@ -11,22 +11,30 @@ class EventsController < ApplicationController
   end
 
   def new
-    respond_with(@events = RMeetup::Client.fetch(:events, { group_id: Brigade.meetup_ids }))
+    respond_with(@event = Event.new)
   end
 
   def edit
     @event = Event.find(params[:id])
   end
 
-  def create
-    events = RMeetup::Client.fetch(:events, { event_id: event_ids })
-    events.each do |event|
-      @event = Event.new(name: event.name, url: event.url, description: event.description, start_time: event.time, brigade_id: brigade_id(event.group["id"]))
-      @event.save
-      redirect_to root_path
-    end
+  def new_import
+    respond_with(@events = Event.fetch(:events, { group_id: ENV['meetup_group_id'] }))
+  end
 
-    
+  def import
+    events = []
+    meetup_events = Event.fetch(:events, {event_id: event_ids })
+    meetup_events.each do |event|
+      events << Event.new(name: event.name, url: event.url, description: event.description, start_time: event.time, meetup_id: event.id)
+    end
+    Event.import(events)
+    flash[:success] = "#{events.count} events imported."
+    redirect_to root_path
+  end
+
+  def create
+    respond_with(@event = Event.create(params[:event]))
   end
 
   def update
@@ -44,10 +52,7 @@ class EventsController < ApplicationController
   private
 
   def event_ids
-    params[:events].join(", ")
+    params[:events].join(",")
   end
 
-  def brigade_id(group_id)
-    Brigade.find_by_meetup_id(group_id).id
-  end
 end

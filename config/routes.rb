@@ -1,6 +1,8 @@
 BrigadeBackend::Application.routes.draw do
   root to: 'home#index'
   devise_for :users, controllers: { omniauth_callbacks: "users/omniauth_callbacks" }
+  get '/meetups/import', to: 'events#new_import'
+  post '/meetups/import', to: 'events#import'
 
   resources :events
   resources :projects
